@@ -26,8 +26,8 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">О проекте</a>
                     <a class="dropdown-item" href="#">Что надо делать</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Reading List</a>
+<!--                    <div class="dropdown-divider"></div>-->
+<!--                    <a class="dropdown-item" href="#">Reading List</a>-->
                 </div>
             </li>
             <li class="nav-item">
@@ -57,7 +57,6 @@
 </nav>
 
 
-<!-- Modal -->
 <div class="modal fade" id="signmod" tabindex="-1" aria-labelledby="modlb" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -77,7 +76,7 @@
                         <input type="text" class="form-control" id="logauth" name="logauth" placeholder="Почта">
                     </div>
                     <div class="mb-3">
-                        <label for="passauth" class="form-label">Password</label>
+                        <label for="passauth" class="form-label">Пароль  </label>
                         <input type="password" class="form-control" id="passauth" name="passauth" placeholder="Пароль">
                     </div>
 
@@ -107,7 +106,7 @@
             <div class="modal-body">
                 <form action="#" method="post">
                     <div class="mb-3">
-                        <label for="namereg" class="form-label">Name</label>
+                        <label for="namereg" class="form-label">Имя</label>
                         <input type="text" class="form-control" id="namereg" name="namereg" placeholder="Имя">
                     </div>
 
@@ -115,6 +114,17 @@
                         <label for="logreg" class="form-label">Почта</label>
                         <input type="text" class="form-control" id="logreg" name="logreg" placeholder="Почта">
                     </div>
+
+                    <div class="mb-3">
+                        <label for="number_form" class="form-label">Класс</label>
+                        <input type="number" class="form-control" id="number_form" name="number_form" placeholder="Класс">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="form_name" class="form-label">Буква</label>
+                        <input type="text" maxlength="1" class="form-control" id="form_name" name="form_name" placeholder="Буква класса">
+                    </div>
+
                     <div class="mb-3">
                         <label for="passreg" class="form-label">Пароль</label>
                         <input type="password" class="form-control" id="passreg" name="passreg" placeholder="Пароль">
