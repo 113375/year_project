@@ -113,7 +113,7 @@
 
                         <div class="mb-3">
                             <label for="logreg" class="form-label">Почта</label>
-                            <input type="text" class="form-control" id="logreg" name="logreg" placeholder="Почта">
+                            <input type="email" class="form-control" id="logreg" name="logreg" placeholder="Почта">
                         </div>
 
                         <div class="mb-3">
