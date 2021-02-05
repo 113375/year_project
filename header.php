@@ -25,7 +25,7 @@
                         О нас
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">О проекте</a>
+                        <a class="dropdown-item" href="/about.php">О проекте</a>
                         <a class="dropdown-item" href="#">Что надо делать</a>
                         <!--                    <div class="dropdown-divider"></div>-->
                         <!--                    <a class="dropdown-item" href="#">Reading List</a>-->
