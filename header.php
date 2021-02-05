@@ -74,7 +74,7 @@
                     <form action="checks/check_auth.php" method="post">
                         <div class="mb-3">
                             <label for="logauth" class="form-label">Почта</label>
-                            <input type="text" class="form-control" id="logauth" name="logauth" placeholder="Почта">
+                            <input type="email" class="form-control" id="logauth" name="logauth" placeholder="Почта">
                         </div>
                         <div class="mb-3">
                             <label for="passauth" class="form-label">Пароль  </label>
