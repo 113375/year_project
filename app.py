@@ -3,6 +3,7 @@ from flask import Flask, request
 import logging
 import json
 
+from api import blueprint
 from data import db_session
 
 app = Flask(__name__)
@@ -12,8 +13,6 @@ logging.basicConfig(level=logging.INFO)
 sessionStorage = {}
 
 
-def init_db():
-    db_session.global_init("db/data.db")
 
 @app.route('/post', methods=['POST'])
 def main():
@@ -82,6 +81,12 @@ def get_suggests(user_id):
     return suggests
 
 
+def api():
+    db_session.global_init("db/school.db")
+    app.register_blueprint(blueprint)
+
+
 if __name__ == '__main__':
-    init_db()
+    api()
+    # serve(app, port=8080)
     app.run(port=8080)
