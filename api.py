@@ -5,8 +5,7 @@ from data import db_session
 from flask import request
 from flask import jsonify
 
-# TODO тут будет реализовано API с помощью blueprint
-# TODO надо будет сделать обработчики /check, /add_student, /find_student
+# TODO надо будет сделать обработчики /find_student
 
 
 blueprint = flask.Blueprint(
@@ -56,6 +55,11 @@ def add_student():
 
 @blueprint.route("/find_student", methods=['GET'])
 def find_student():
+    pass
+
+
+@blueprint.route("/students/<student_id>", methods=['PATCH'])
+def patch_student(student_id):
     pass
 
 
