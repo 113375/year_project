@@ -103,7 +103,7 @@ def patch_student(student_id):
 
 @blueprint.route('/')
 def main():
-    return render_template('makeSql.html', answer="Введите запрос")
+    return render_template('makeSql.html', answer="")
 
 
 @blueprint.route('/', methods=["POST"])
@@ -114,7 +114,51 @@ def mainPost():
     try:
         answer = cur.execute(sql).fetchall()
         if not answer:
-            answer = "В базе данных пока ничего нет"
+            answer = "Нет ответа"
+        con.commit()
     except Exception as e:
         answer = str(e)
+
     return render_template('makeSql.html', answer=answer)
+
+
+@blueprint.route("/add/student")
+def addStudent():
+    return render_template('addStudent.html', answer="")
+
+
+@blueprint.route("/add/student", methods=["POST"])
+def addStudentPost():
+    data = request.form
+    con = sqlite3.connect("db/school.db")
+    cur = con.cursor()
+    try:
+        grade_id = cur.execute("SELECT form_id FROM form WHERE grade = ? and letter = ?",
+                               (data["grade"], data["letter"])).fetchall()
+        print(grade_id)
+        cur.execute("INSERT INTO student (card_id, name, surname, patronymic, form) VALUES (?, ?, ?, ? , ?)",
+                    (data["card_id"], data["name"], data["surname"], data["patronymic"], grade_id[0][0]))
+        con.commit()
+        answer = "Пользователь успешно добавлен"
+    except Exception as e:
+        answer = str(e)
+    return render_template('addStudent.html', answer=answer)
+
+
+@blueprint.route("/add/form")
+def addForm():
+    return render_template('addForm.html', answer="")
+
+
+@blueprint.route("/add/form", methods=["POST"])
+def addFormPost():
+    data = request.form
+    con = sqlite3.connect("db/school.db")
+    cur = con.cursor()
+    try:
+        cur.execute("INSERT INTO form (letter, grade) VALUES (?, ?)", (data["letter"], data["grade"]))
+        con.commit()
+        answer = "Класс добавлен"
+    except Exception as e:
+        answer = str(e)
+    return render_template('addForm.html', answer=answer)

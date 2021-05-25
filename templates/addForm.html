@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="/">
-    <input type="text" class="input-command" name="sql" placeholder="Введите sql команду">
+<form action="/add/form">
+    <div class="inputs">
+        <input type="number" max="11" min="1" class="input-command" name="grade" placeholder="Введите класс">
+
+        <input type="text" class="input-command" name="letter" maxlength="2" placeholder="Введите букву класса">
+
+
+    </div>
+
     <div class="answer">
         {{answer}}
     </div>
@@ -29,10 +36,17 @@
         border: 0;
         background-color: #dddddd;
         height: 40px;
+        padding: 2px;
+        margin: 10px;
     }
 
     .answer {
         margin-top: 20px;
+    }
+
+    .inputs {
+        display: flex;
+
     }
 </style>
 

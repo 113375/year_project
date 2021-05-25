@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/add/form">
+    <div class="inputs">
+        <input type="text" class="input-command" name="name" placeholder="Введите имя">
+        <input type="text" class="input-command" name="surname" placeholder="Введите фамилию">
+        <input type="text" class="input-command" name="patronymic" placeholder="Введите отчество">
+
+    </div>
+    <div class="inputs">
+        <input type="number" class="input-command" name="grade" min="1" max="11" placeholder="Введите класс">
+        <input type="text" class="input-command" name="letter" placeholder="Введите букву класса">
+        <input type="text" class="input-command" name="card_id" placeholder="Введите номер карты">
+
+    </div>
+    <div class="answer">
+        {{answer}}
+    </div>
+    <div style="margin-top: 30px">
+        <h3>Таблицы в базе данных</h3>
+        <ul>
+            <li>student - таблица с учениками SELECT * FROM student (id, card_id, name, surname, patronymic, form_id)
+            </li>
+            <li>form - талица с классами SELECT * FROM form (id, grade, letter)</li>
+
+        </ul>
+    </div>
+
+    <button type="submit" class="btn btn-dark" formmethod="post">
+        Сделать запрос
+    </button>
+</form>
+
+<style>
+    input {
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 10px;
+        border: 0;
+        background-color: #dddddd;
+        height: 40px;
+        padding: 2px;
+        margin: 10px;
+    }
+
+    .answer {
+        margin-top: 20px;
+    }
+
+    .inputs {
+        display: flex;
+
+    }
+</style>
+
+{% endblock %}
