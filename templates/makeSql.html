@@ -4,13 +4,19 @@
 <form action="/">
     <input type="text" class="input-command" name="sql" placeholder="Введите sql команду">
     <div class="answer">
-        {{answer}}
+        {%if answer%}
+        {% for key in answer %}
+        {{key}}
+        <br>
+        {%endfor%}
+        {%endif%}
     </div>
     <div style="margin-top: 30px">
         <h3>Таблицы в базе данных</h3>
         <ul>
-            <li>student - таблица с учениками SELECT * FROM student</li>
-            <li>form - талица с классами SELECT * FROM form</li>
+            <li>student - таблица с учениками SELECT * FROM student (id, card_id, name, surname, patronymic, form_id)
+            </li>
+            <li>form - талица с классами SELECT * FROM form (id, grade, letter)</li>
 
         </ul>
     </div>
