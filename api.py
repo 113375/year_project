@@ -81,16 +81,19 @@ def patch_student(student_id):
         student.patronymic = data["patronymic"]
     if "card_id" in data:
         student.card_id = data["card_id"]
-
-
-
+    if "grade" and "letter" in data:
+        form = db_sess.query(Form).filter(Form.grade == data["grade"]).filter(Form.letter == data["letter"]).first()
+        if form:
+            student.form = form.form_id
+        else:
+            return jsonify({"error": "Несуществующий класс"})
     db_sess.commit()
     student2 = db_sess.query(Student).filter(Student.student_id == student_id).first()
     form = db_sess.query(Form).filter(Form.form_id == student2.form).first()
 
     return jsonify({"student": {"name": student2.name,
                                 "surname": student2.surname,
-                                "patronymic": student2.second_name,
+                                "patronymic": student2.patronymic,
                                 "form": form.grade,
                                 "letter": form.letter,
                                 "form_id": form.form_id
