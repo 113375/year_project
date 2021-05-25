@@ -102,4 +102,5 @@ def patch_student(student_id):
 
 @blueprint.route('/')
 def main():
+    # TODO надо будет сделать admin панель
     return "<p>Сервер успешно работает</p>"
