@@ -14,7 +14,7 @@ class Student(SqlAlchemyBase, SerializerMixin):
     card_id = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     surname = sqlalchemy.Column(sqlalchemy.String, nullable=False)
-    second_name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    patronymic = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     form = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("form.form_id"), nullable=False)
 
 
