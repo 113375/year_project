@@ -22,8 +22,8 @@ def check():
     db_sess = db_session.create_session()
     res = db_sess.query(Student).filter(data["card_id"] == Student.card_id).first()
     if res is not None:
-        return jsonify({"access": "true", "student_id": res.student_id, "error": ""})
-    return jsonify({"access": "false", "error": "Несуществующий id карты"})
+        return jsonify({"access": True, "student_id": res.student_id, "error": ""})
+    return jsonify({"access": False, "error": "Несуществующий id карты"})
 
 
 @blueprint.route('/add_student', methods=['POST'])
