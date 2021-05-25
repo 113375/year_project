@@ -2,6 +2,10 @@
 from flask import Flask, request
 import logging
 import json
+from flask_restful import Resource, Api
+from flask_jwt_extended import JWTManager
+from flask_jwt_extended import create_access_token, jwt_required
+from flask_cors import CORS
 
 from api import blueprint
 from data import db_session
@@ -11,7 +15,6 @@ app = Flask(__name__)
 # Устанавливаем уровень логирования
 logging.basicConfig(level=logging.INFO)
 sessionStorage = {}
-
 
 
 @app.route('/post', methods=['POST'])

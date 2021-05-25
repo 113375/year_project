@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/">
+    <input type="text" class="input-command" name="sql" placeholder="Введите sql команду">
+    <div class="answer">
+        {{answer}}
+    </div>
+    <div style="margin-top: 30px">
+        <h3>Таблицы в базе данных</h3>
+        <ul>
+            <li>student - таблица с учениками SELECT * FROM student</li>
+            <li>form - талица с классами SELECT * FROM form</li>
+
+        </ul>
+    </div>
+
+    <button type="submit" class="btn btn-dark" formmethod="post">
+        Сделать запрос
+    </button>
+</form>
+
+<style>
+    input {
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 10px;
+        border: 0;
+        background-color: #dddddd;
+        height: 40px;
+    }
+
+    .answer {
+        margin-top: 20px;
+    }
+</style>
+
+{% endblock %}

@@ -2,8 +2,9 @@ import flask
 from data.dataBase.form import Form
 from data.dataBase.student import Student
 from data import db_session
-from flask import request
+from flask import request, render_template
 from flask import jsonify
+import sqlite3
 
 blueprint = flask.Blueprint(
     'news_api',
@@ -102,5 +103,18 @@ def patch_student(student_id):
 
 @blueprint.route('/')
 def main():
-    # TODO надо будет сделать admin панель
-    return "<p>Сервер успешно работает</p>"
+    return render_template('makeSql.html', answer="Введите запрос")
+
+
+@blueprint.route('/', methods=["POST"])
+def mainPost():
+    sql = request.form['sql']
+    con = sqlite3.connect("db/school.db")
+    cur = con.cursor()
+    try:
+        answer = cur.execute(sql).fetchall()
+        if not answer:
+            answer = "В базе данных пока ничего нет"
+    except Exception as e:
+        answer = str(e)
+    return render_template('makeSql.html', answer=answer)
