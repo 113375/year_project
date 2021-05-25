@@ -12,7 +12,7 @@
 > 1. **/check** POST - проверка ученика
 >- Принимает на вход json вида {"card_id": "(id карточки)"}
 >- В случае ошибки возвращает json вида {"error": "(Описание ошибки)", "access": "false"}
->- Успещный ответ: {"access": "true", "student_id": "(id ученика)"", "error": ""}
+>- Успешный ответ: {"access": "true", "student_id": "(id ученика)"", "error": ""}
 ------
 > 2. **/add_student** POST - добавление ученика 
 > - Принимает на вход json вида {"name": "(Имя ученика)", "surname": "(Фамилия ученика)"", "patronymic": "(Отчество ученика)"", "grade": "(Класс ученика)", "card_id": "(Номер карты ученика)", "letter": "Буква класса ученика"}, все поля обязательны
@@ -31,17 +31,17 @@
                                 "form_id": "(id класса)"
                                 }}
 -----
-> 4. **/students/<student_id>** PATCH - обновлене даных о пользователе 
+> 4. **/students/<student_id>** PATCH - обновление данных о пользователе
 > - Принимает на вход json с любыми из этих полей: "name": "(Имя ученика)",
-                                "surname": "(Фамилия ученика)",
-                                "patronymic": "(Отчество)",
-                                "form": "(Номер класса)",
-                                "letter": "(Буква класса)",
-                                "form_id": "(id класса)"
-                                }
+    "surname": "(Фамилия ученика)",
+    "patronymic": "(Отчество)",
+    "form": "(Номер класса)",
+    "letter": "(Буква класса)",
+    "form_id": "(id класса)"
+    }
 > - В случае ошибки возвращает json вида {"error": (ошибка)}
 > - Ответ от сервера - json со всеми данными о пользователе - {"student": {"name": student2.name,
-                                "surname": student2.surname,
+    "surname": student2.surname,
                                 "patronymic": student2.second_name,
                                 "form": form.grade,
                                 "letter": form.letter,
